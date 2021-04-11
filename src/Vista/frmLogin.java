@@ -120,7 +120,7 @@ public class frmLogin extends javax.swing.JFrame {
         String username = txtUsuario.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
         
-        if(username.trim().equals("Jonathan") || username.trim().equals("Kevin") )
+        if(username.trim().equals("JNA18") || username.trim().equals("KYLD02") )
         {
             if(password.trim().equals("1234"))
         {   
