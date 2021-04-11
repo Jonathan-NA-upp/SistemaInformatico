@@ -38,6 +38,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
+        setBackground(new java.awt.Color(204, 255, 204));
 
         btnLogin.setBackground(new java.awt.Color(102, 102, 102));
         btnLogin.setFont(new java.awt.Font("David", 1, 28)); // NOI18N

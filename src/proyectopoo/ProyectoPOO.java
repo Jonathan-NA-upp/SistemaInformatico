@@ -17,5 +17,9 @@ public class ProyectoPOO {
     public static void main(String[] args) {
         // TODO code application logic here
     }
+
+    public static Object getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
