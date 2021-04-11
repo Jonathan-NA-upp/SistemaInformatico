@@ -46,11 +46,11 @@ public class frmMenu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 766, Short.MAX_VALUE)
+            .addGap(0, 1091, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
@@ -120,9 +120,19 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         opInventario.setText("INVENTARIO");
+        opInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opInventarioActionPerformed(evt);
+            }
+        });
         jMenu3.add(opInventario);
 
         opVentas.setText("VENTAS");
+        opVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opVentasActionPerformed(evt);
+            }
+        });
         jMenu3.add(opVentas);
 
         jMenuBar1.add(jMenu3);
@@ -177,6 +187,20 @@ public class frmMenu extends javax.swing.JFrame {
         escritorio.add(personal);
         personal.show();
     }//GEN-LAST:event_opFemeninoActionPerformed
+
+    private void opInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opInventarioActionPerformed
+        // TODO add your handling code here:
+        frmInventario visualizar = new frmInventario();
+        escritorio.add(visualizar);
+        visualizar.show();
+    }//GEN-LAST:event_opInventarioActionPerformed
+
+    private void opVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opVentasActionPerformed
+        // TODO add your handling code here:
+        frmVentas visualizar = new frmVentas();
+        escritorio.add(visualizar);
+        visualizar.show();
+    }//GEN-LAST:event_opVentasActionPerformed
 
     /**
      * @param args the command line arguments
