@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Bren
@@ -78,6 +80,11 @@ public class frmRegistro extends javax.swing.JFrame {
         btnRegistro.setFont(new java.awt.Font("Dialog", 3, 36)); // NOI18N
         btnRegistro.setForeground(new java.awt.Color(0, 204, 204));
         btnRegistro.setLabel("REGISTRARSE");
+        btnRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistroActionPerformed(evt);
+            }
+        });
 
         txtNombre.setFont(new java.awt.Font("Footlight MT Light", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(255, 51, 51));
@@ -87,6 +94,11 @@ public class frmRegistro extends javax.swing.JFrame {
 
         txtTelefono.setFont(new java.awt.Font("Footlight MT Light", 0, 24)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(255, 51, 51));
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
 
         jpswPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jpswPassword.setForeground(new java.awt.Color(255, 51, 51));
@@ -181,6 +193,46 @@ public class frmRegistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        // TODO add your handling code here:
+       String fname = txtNombre.getText();
+        String uname = txtUsuario.getText();
+        String phone = txtTelefono.getText();
+        String pass1 = String.valueOf(jpswPassword.getPassword());
+        String pass2 = String.valueOf(jpswConfirmar.getPassword());
+        String gender = "Male";
+         
+         if(jRadioButton2.isSelected()){
+             gender = "Female";
+         }
+        // check empty fields
+        if(fname.trim().equals("") || uname.trim().equals("") || phone.trim().equals("")
+           || pass1.trim().equals("") || pass2.trim().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Uno o mas campos estan vacios","Campos faltantes",2);
+            JOptionPane.showMessageDialog(null, "Error: Revisa tu informacion");
+        }
+        
+        // check if the two password are equals
+        else if(!pass1.equals(pass2))
+        {
+           JOptionPane.showMessageDialog(null, "La contraseña no coincide","Contraseña invalida",2); 
+           JOptionPane.showMessageDialog(null, "Error: Revisa tu informacion");
+        }
+        
+        // if everything is ok
+        else{
+            JOptionPane.showMessageDialog(this, "Tu cuenta ha sido creada");
+        }
+    }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar())){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txtTelefonoKeyTyped
 
     /**
      * @param args the command line arguments
