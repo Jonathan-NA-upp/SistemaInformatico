@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Bren
@@ -47,8 +49,18 @@ public class frmAgregar extends javax.swing.JInternalFrame {
         btnGuardar.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(0, 204, 204));
         btnGuardar.setLabel("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         txtCantidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         lblCantidad.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(0, 0, 255));
@@ -59,6 +71,11 @@ public class frmAgregar extends javax.swing.JInternalFrame {
         lblPrecio.setText("PRECIO");
 
         txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         txtNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -127,6 +144,32 @@ public class frmAgregar extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String codigo = txtCodigo.getText();
+        String nombre = txtNombre.getText();
+        String precio = txtPrecio.getText();
+        String cantidad = txtCantidad.getText();
+        
+        if(codigo.trim().equals("") || nombre.trim().equals("") || precio.trim().equals("") || 
+        cantidad.trim().equals("") ){
+        JOptionPane.showMessageDialog(null, "Uno o mas campos estan vacios","Campos faltantes",2);
+        }else{
+         JOptionPane.showMessageDialog(this, "Producto Agregado");
+        }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txtCantidadKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnGuardar;

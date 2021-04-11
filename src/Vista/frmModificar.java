@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Bren
@@ -48,8 +50,18 @@ public class frmModificar extends javax.swing.JInternalFrame {
         btnBuscar.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 204, 204));
         btnBuscar.setLabel("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         txtCantidad.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         lblCantidad.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lblCantidad.setForeground(new java.awt.Color(0, 0, 255));
@@ -60,6 +72,11 @@ public class frmModificar extends javax.swing.JInternalFrame {
         lblPrecio.setText("PRECIO");
 
         txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         txtNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
@@ -77,6 +94,11 @@ public class frmModificar extends javax.swing.JInternalFrame {
         btnModificar1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         btnModificar1.setForeground(new java.awt.Color(0, 204, 204));
         btnModificar1.setLabel("MODIFICAR");
+        btnModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificar1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,6 +160,43 @@ public class frmModificar extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar1ActionPerformed
+        String codigo = txtCodigo.getText();
+        String nombre = txtNombre.getText();
+        String precio = txtPrecio.getText();
+        String cantidad = txtCantidad.getText();
+        
+        if(codigo.trim().equals("") || nombre.trim().equals("") || precio.trim().equals("") || 
+        cantidad.trim().equals("") ){
+        JOptionPane.showMessageDialog(null, "Uno o mas campos estan vacios","Campos faltantes",2);
+        }else{
+         JOptionPane.showMessageDialog(this, "Producto Modificado");
+        }
+    }//GEN-LAST:event_btnModificar1ActionPerformed
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+           evt.consume();
+       }
+    }//GEN-LAST:event_txtCantidadKeyTyped
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String codigo = txtCodigo.getText();
+        if(codigo.trim().equals("GK-7802")){
+        txtNombre.setText("Tarjeta Ram");
+        txtPrecio.setText("2300");
+        txtCantidad.setText("4");
+        }else{
+            JOptionPane.showMessageDialog(null, "Producto No Encontrado");
+        }       
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
